@@ -21,7 +21,7 @@ public class Professor {
         this.nome = nome;
     }
 
-    public void setEspecialidade(String nome){
+    public void setEspecialidade(String especialidade){
         this.especialidade = especialidade;
     }
 }
