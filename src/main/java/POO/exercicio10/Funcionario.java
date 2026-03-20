@@ -25,5 +25,13 @@ public class Funcionario {
         this.salarioBase = _salarioBase;
     }
 
+    public double calcularSalario(){
+        return salarioBase;
+    }
+
+    public void exibirDados(){
+        System.out.println("Nome: " + getNome() +
+                " | Salário: " + calcularSalario());
+    }
 
 }
