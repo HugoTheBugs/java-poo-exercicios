@@ -1,4 +1,4 @@
-package Básicos;
+package Básicos.Outros;
 
 import java.util.Scanner;
 
