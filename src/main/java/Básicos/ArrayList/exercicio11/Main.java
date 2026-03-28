@@ -30,7 +30,7 @@ public class Main {
                     break;
 
                 case 2:
-                    listarAlunos(alunos, sc);
+                    listarAlunos(alunos);
                     break;
 
                 case 3:
@@ -69,11 +69,13 @@ public class Main {
         System.out.println("Aluno cadastrado com sucesso!\n");
     }
 
-    public static void listarAlunos(ArrayList<Aluno> alunos, Scanner sc){
+    public static void listarAlunos(ArrayList<Aluno> alunos){
         System.out.println("Listando aluno...");
+
         if (alunos.isEmpty()){
             System.out.println("Nenhum aluno cadastrado.");
         }
+
         for (Aluno a: alunos){
             System.out.printf("Nome: %s | Nota: %.2f\n", a.getNome(), a.getNota());
         }
