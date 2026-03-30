@@ -19,6 +19,8 @@ public class Main {
             System.out.println("3 - Buscar aluno");
             System.out.println("4 - Atualizar aluno");
             System.out.println("5 - Remover aluno");
+            System.out.println("6 - Média da turma");
+            System.out.println("7 - Alunos aprovados");
             System.out.println("0 - Sair\n");
 
             opcao = sc.nextInt();
@@ -43,6 +45,14 @@ public class Main {
 
                 case 5:
                     removerAluno(alunos, sc);
+                    break;
+
+                case 6:
+                    calcularMedia(alunos);
+                    break;
+
+                case 7:
+                    alunosAprovados(alunos);
                     break;
 
                 case 0:
@@ -74,6 +84,7 @@ public class Main {
 
         if (alunos.isEmpty()){
             System.out.println("Nenhum aluno cadastrado.");
+            return;
         }
 
         for (Aluno a: alunos){
@@ -146,6 +157,44 @@ public class Main {
 
         if (!encontradoRemocao){
             System.out.println("Aluno não encontrado!");
+        }
+    }
+
+    public static void calcularMedia(ArrayList<Aluno> alunos){
+        double notaTurma = 0;
+
+        if (alunos.isEmpty()){
+            System.out.println("Nenhum aluno cadastrado.");
+            return;
+        }
+
+        for (Aluno p: alunos){
+            notaTurma += p.getNota();
+
+        }
+
+        double mediaTurma = notaTurma / alunos.size();
+
+        System.out.printf("\nMédia da turma: %.2f", mediaTurma);
+    }
+
+    public static void alunosAprovados(ArrayList<Aluno> alunos){
+        if (alunos.isEmpty()){
+            System.out.println("Nenhum aluno cadastrado.");
+            return;
+        }
+        System.out.println("\n=== Alunos Aprovados ===");
+
+        boolean encontrouAprovado = false;
+        for (Aluno p: alunos){
+            if (p.getNota() >= 6){
+                System.out.printf("%s - %.2f\n", p.getNome(), p.getNota());
+                encontrouAprovado = true;
+            }
+        }
+
+        if (!encontrouAprovado){
+            System.out.println("Nenhum aluno aprovado.");
         }
     }
 }
